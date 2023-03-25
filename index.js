@@ -18,8 +18,8 @@ app.listen(port, () => console.log("App listening on port " + port));
 
 // This is the client ID and client secret that you obtained
 // while registering on github app
-const clientID = "49dee5c5511bc9ce4ccd";
-const clientSecret = "382688e8a943826b3f697b33bdc08b1f00fda0bf";
+const clientID = "YOUR_CLIENT_ID_HERE";
+const clientSecret = "YOUR_CLIENT_SECRET_HERE";
 
 // Declare the callback route
 app.get("/github/callback", (req, res) => {
