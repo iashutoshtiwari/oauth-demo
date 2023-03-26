@@ -15,7 +15,7 @@ npm i
 
 Step 3: Register your OAuth app on GitHub using this [link](https://github.com/settings/applications/new)
 
-Step 4: Add the Authorization callback URL as http://localhost:2400/github/callback
+Step 4: Add the Homepage URL as http://localhost:2400 Authorization callback URL as http://localhost:2400/github/callback
 
 Step 5: Once you have obtained the const clientID and client secret key, search for the below variables in the index.js file and add them
 
