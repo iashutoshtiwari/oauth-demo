@@ -1,5 +1,8 @@
 // index.js
 
+//Loading Environment variables
+require("dotenv").config();
+
 // Import the axios library, to make HTTP requests
 const axios = require("axios");
 /*  EXPRESS */
@@ -19,7 +22,7 @@ app.listen(port, () => console.log("App listening on port " + port));
 // This is the client ID and client secret that you obtained
 // while registering on github app
 const clientID = process.env.CLIENT_ID;
-const clientSecret = "process.env.CLIENT_SECRET";
+const clientSecret = process.env.CLIENT_SECRET;
 
 // Declare the callback route
 app.get("/github/callback", (req, res) => {
