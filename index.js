@@ -5,6 +5,7 @@ require("dotenv").config();
 
 // Import the axios library, to make HTTP requests
 const axios = require("axios");
+
 /*  EXPRESS */
 const express = require("express");
 const app = express();
@@ -25,12 +26,9 @@ const clientSecret = process.env.CLIENT_SECRET;
 
 // Declare the callback route
 app.get("/github/callback", (req, res) => {
-	// The req.query object has the query params that were sent to this route.
-	const requestToken = req.query.code;
-
 	axios({
 		method: "post",
-		url: `https://github.com/login/oauth/access_token?client_id=${clientID}&client_secret=${clientSecret}&code=${requestToken}`,
+		url: `https://github.com/login/oauth/access_token?client_id=${clientID}&client_secret=${clientSecret}&code=${req?.query?.code}`,
 		// Set the content type header, so that we get the response in JSON
 		headers: {
 			accept: "application/json",
