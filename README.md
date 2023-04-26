@@ -17,15 +17,15 @@ Step 3: Register your OAuth app on GitHub using this [link](https://github.com/s
 
 Step 4: Add the Homepage URL as http://localhost:2400 and the Authorization callback URL as http://localhost:2400/github/callback
 
-Step 5: Once you have obtained the const clientID and client secret key, search for the below variables in the index.js file and add them
+Step 5: Once you have obtained the const clientID and client secret key, create a new .env file in project's root folder and paste the following:
 
-```js
-const clientID = "YOUR_CLIENT_ID_HERE"; // Add your client ID inside the quotes
-const clientSecret = "YOUR_CLIENT_SECRET_HERE"; // Add your client secret inside the quotes
+```sh
+CLIENT_ID = "YOUR_CLIENT_ID_HERE"; // Add your client ID inside the quotes
+CLIENT_SECRET = "YOUR_CLIENT_SECRET_HERE"; // Add your client secret inside the quotes
 ```
 
 Step 6: Start the server
 
 ```sh
-node index.js
+npm start
 ```
