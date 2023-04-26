@@ -10,7 +10,6 @@ const express = require("express");
 const app = express();
 
 app.set("view engine", "ejs");
-var access_token = "";
 
 app.get("/", function (req, res) {
 	res.render("pages/index", { client_id: clientID });
@@ -37,19 +36,19 @@ app.get("/github/callback", (req, res) => {
 			accept: "application/json",
 		},
 	}).then((response) => {
-		access_token = response.data.access_token;
+		const access_token = response.data.access_token;
 		res.redirect("/success");
-	});
-});
 
-app.get("/success", function (req, res) {
-	axios({
-		method: "get",
-		url: `https://api.github.com/user`,
-		headers: {
-			Authorization: "token " + access_token,
-		},
-	}).then((response) => {
-		res.render("pages/success", { userData: response.data });
+		app.get("/success", function (req, res) {
+			axios({
+				method: "get",
+				url: `https://api.github.com/user`,
+				headers: {
+					Authorization: "token " + access_token,
+				},
+			}).then((response) => {
+				res.render("pages/success", { userData: response.data });
+			});
+		});
 	});
 });
